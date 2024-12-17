@@ -1,11 +1,11 @@
-This repo hosts the dataset site and code related to the paper:
+This repo hosts the site and code related to the paper:
 > Uchaguzi-2022: A Dataset of Citizen Reports on the 2022 Kenyan Election
 
 Getting Started
 ---
 
 We recommend using [Anaconda](https://www.anaconda.com/download) or a similar dependency manager.
-To get started, install the `uchaguzi-ai` package and its dependencies.
+To get started, install the `uchaguzi-ai` package and its dependencies:
 ```{bash}
 conda create -n uchaguzi-ai python=3.10
 conda activate uchaguzi-ai
@@ -52,8 +52,8 @@ python data-processing-scripts/02_create_annotation_dataset.py
 
 This script performs the following steps.
 
-First, it generates the dataset consisting of 500 samples to be annotated by an expert using the sampling strategy described in the paper (Section 2.4).
+Firstly, it generates the dataset consisting of 500 samples to be annotated by an expert using the sampling strategy described in the paper (Section 2.4).
 
-Second, it merges the dataset with the expert annotations (the `annotated_dataset.parquet` file in `data`) and evaluates the inter-annotator reliability, reproducing the results presented in the paper (percent agreement and Cohen's kappa).
+Secondly, it merges the dataset with the expert annotations (the `annotated_dataset.parquet` file in `data`) and evaluates the inter-annotator reliability, reproducing the results presented in the paper (percent agreement and Cohen's kappa).
 
 Finally, it generates the updated train, validation, and test splits for the *topic classification* and *tag classification* tasks by removing the annotated samples from the train and validation splits (to avoid data leakage during training and evaluation) and by replacing the test sets with the expert-annotated dataset (used as ground truth as described in the paper).
